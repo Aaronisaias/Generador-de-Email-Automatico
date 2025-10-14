@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Email</title>
+  </head>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100vw;
+      background-color: black;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      color: white;
+      margin: 0;
+      background-image: url("https://i.pinimg.com/originals/0b/72/33/0b72338bf1a1a0e0bbd583148a2d2ad5.gif");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .position_general {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .position_presentacion {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .position_presentacion h1 {
+        font-size: 55px;
+        background-image: url("https://i.gifer.com/origin/a9/a9275d1c460581c5c60803aae0e03302.gif");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .logo_email {
+        background-image: url("https://cdn-icons-png.flaticon.com/128/732/732200.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100px;
+        height: 100px;
+    }
+
+    form {
+        width: 450px;
+        height: 500px;
+        background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 5px 10px 10px white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        gap: 60px;
+    }
+
+    form .conteiner_labels {
+        position: relative;
+        top: 45px;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        font-size: 23px;
+    }
+
+    form label {
+        color: black;
+        font-weight: bold;
+    }
+
+    form button {
+        position: relative;
+        overflow: hidden;
+        top: 43px;
+        width: 180px;
+        height: 60px;
+        font-size: 28px;
+        border-radius: 5px;
+        font-weight: 600;
+        border: none;
+        background-color: red;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+    }
+
+    button::before {
+        content: "";
+        position: absolute;
+        background-color: white;
+        top: 0;
+        left: -56px;
+        right: 0;
+        bottom: 0;
+        height: 33px;
+        opacity: 0.1;
+        transform: translateY(-45px) translateX(140px) rotate(54deg);
+    }
+
+    button:hover::before {
+        animation: efecto_reflejo;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+    }
+
+    @keyframes efecto_reflejo {
+        to {
+           transform: rotate(54deg) translateY(103px) translateX(-23px);
+        }
+        from {
+            transform: translateY(-35px) translateX(150px) rotate(54deg);
+        }
+    }
+
+    form button div {
+        background-image: url("https://cdn-icons-png.flaticon.com/128/95/95627.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 42px;
+        height: 42px;
+        filter: invert(1);
+    }
+
+    form button:hover {
+        background-color: rgb(180, 48, 48);
+    }
+
+    .conteiner_resultado {
+        margin-top: 100px;
+        position: relative;
+        background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/e9d40d26810225.5635acac91f14.gif");
+        background-position: center;
+        border: 4px solid white;
+        border-radius: 10px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 650px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
+    }
+
+    .conteiner_resultado code {
+        background-color: black;
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 50px;
+    }
+
+    .flecha {
+    position: relative;
+    top: 70px;
+    background-image: url("https://de.cdn-website.com/34a32b6664af4786adbf5ab1763617f6/dms3rep/multi/flecha-blanca.gif?dm-skip-opt=true");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    }
+  </style>
+  <body>
+
+    <div class="position_general">
+    <div class="position_presentacion">
+    <div class="logo_email"></div>
+    <h1>Generador de Email</h1>
+    <div class="logo_email"></div>
+    </div>
+
+    <form method="post">
+       
+      
+      <div class="conteiner_labels">
+      <label for="names">{{dat_pedi[0]}}</label>
+      <input type="text" name="nombre" id="names" placeholder="Ingrese su Nombre..."/>
+      </div>
+
+      <div class="conteiner_labels">
+      <label for="lastnames">{{dat_pedi[1]}}</label>
+      <input type="text" name="apellido" id="lastnames" placeholder="Ingrese su Apellido..."/>
+      </div>
+
+      <div class="conteiner_labels">
+      <label for="age">{{dat_pedi[2]}}</label>
+      <input type="text" name="edad" id="age" placeholder="Ingrese su Edad..."/>
+      </div>
+
+      <button type="submit">Generar <div></div></button>
+      
+    </form>
+
+    <div class="flecha"></div>
+
+    <section class="conteiner_resultado"><code>{{email_re}}</code></section>
+    </div>
+  </body>
+</html>
